@@ -1,15 +1,8 @@
 import math
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-from iminuit import Minuit
-from scipy import integrate
-import mplcatppuccin
-from mplcatppuccin.palette import load_color
-from scipy.optimize import curve_fit
 
-mpl.style.use("latte")
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def func(x, k):
@@ -35,7 +28,6 @@ X = np.arange(5e7, 7e8, 5000)
 Y = c[0] * X ** a[0]
 plt.figure()
 # plt.scatter(X, Y)
-# color = load_color("mocha", "peach")
 plt.errorbar(Fe, x, xerr=Fe_er, fmt='o', capsize=3,
              label='Fe\nC = {:.3}\n'.format(c[0]) + r'$\beta$' + ' = {:.3}'.format(a[0]))
 plt.plot(X, func(X, 0), label='Fe')

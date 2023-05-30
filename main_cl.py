@@ -1,19 +1,14 @@
 import math
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 import random
 from pathlib import Path
+
 import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 from iminuit import Minuit
 from scipy import integrate
-from lets_plot import *
-import seaborn as sns
-import mplcatppuccin
-from mplcatppuccin.palette import load_color
 
-LetsPlot.setup_html()
-mpl.style.use("latte")
 p0, p1, p2, p3, x0, y0 = 0, 0, 0, 0, 0, 0
 
 
@@ -30,7 +25,7 @@ def graph(params, transparency=0.1, save=False):
     gs = mpl.gridspec.GridSpec(1, 2)
 
     ax = fig.add_subplot(gs[0, 0], projection='3d')
-    ax.scatter(x_mesh, y_mesh, np.log10(data), color=load_color("mocha", "green"), alpha=transparency)
+    ax.scatter(x_mesh, y_mesh, np.log10(data), alpha=transparency)
     ax.plot_surface(x_mesh, y_mesh, np.log10(params['int_func']), cmap='jet')
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
